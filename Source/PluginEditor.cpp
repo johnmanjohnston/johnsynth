@@ -26,11 +26,12 @@ JohnSynthAudioProcessorEditor::~JohnSynthAudioProcessorEditor()
 void JohnSynthAudioProcessorEditor::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
+    g.fillAll(juce::Colour(10, 10, 10));
+    g.setFont(getHelveticaLight());
 
-    g.setColour (juce::Colours::white);
-    g.setFont (15.0f);
-    g.drawFittedText ("JohnSynth", getLocalBounds(), juce::Justification::centred, 1);
+    g.setFont(30.f);
+    g.setColour (juce::Colour(100, 100, 100));
+    g.drawFittedText ("johnsynth", getLocalBounds(), juce::Justification::centred, 1);
 }
 
 void JohnSynthAudioProcessorEditor::resized()

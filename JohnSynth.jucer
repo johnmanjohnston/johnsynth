@@ -4,6 +4,7 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="HIO2PJ" name="JohnSynth">
     <GROUP id="{546D523D-3788-8294-D9ED-78E2DFE2F0CD}" name="Source">
+      <FILE id="uyRNjh" name="JSLookAndFeel.h" compile="0" resource="0" file="Source/JSLookAndFeel.h"/>
       <FILE id="QUf1td" name="Width.h" compile="0" resource="0" file="Source/Width.h"/>
       <FILE id="RJQOPJ" name="SawSampler.cpp" compile="1" resource="0" file="Source/SawSampler.cpp"/>
       <FILE id="N6ptta" name="SawSampler.h" compile="0" resource="0" file="Source/SawSampler.h"/>
@@ -15,6 +16,9 @@
             file="Source/PluginEditor.cpp"/>
       <FILE id="rgjKW5" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
+    <FILE id="FgX4ME" name="Helvetica.ttf" compile="0" resource="1" file="../../../Downloads/Helvetica.ttf"/>
+    <FILE id="Kbn6P3" name="Helvetica-Light.ttf" compile="0" resource="1"
+          file="../../../Downloads/Helvetica-Light.ttf"/>
   </MAINGROUP>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
