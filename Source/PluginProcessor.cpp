@@ -97,6 +97,9 @@ void JohnSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
     // initialisation that you need..
     sawSampler.setup();
     sawSampler.setCurrentPlaybackSampleRate(sampleRate);
+
+    widener.outputChannelCount = getTotalNumOutputChannels();
+    widener.width = 1.2f;
 }
 
 void JohnSynthAudioProcessor::releaseResources()
@@ -160,6 +163,7 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     }
 
     sawSampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
+    widener.process(buffer);
 }
 
 //==============================================================================

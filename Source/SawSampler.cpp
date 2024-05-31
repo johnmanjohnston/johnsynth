@@ -23,5 +23,5 @@ void SawSampler::setup()
 
     juce::BigInteger allNotes;
     allNotes.setRange(0, 128, true);
-    addSound(new juce::SamplerSound("default", *reader, allNotes, 60, 0.01, 0.05, 16));
+    addSound(new juce::SamplerSound("default", *reader, allNotes, 60, 0, 0.05, 16));
 }

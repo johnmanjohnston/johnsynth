@@ -3147,6 +3147,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Width.h">
+      <Filter>JohnSynth\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\SawSampler.h">
       <Filter>JohnSynth\Source</Filter>
     </ClInclude>
