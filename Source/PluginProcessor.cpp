@@ -98,6 +98,10 @@ void JohnSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
     sawSampler.setup();
     sawSampler.setCurrentPlaybackSampleRate(sampleRate);
 
+    harmSawSampler.transpose = -12;
+    harmSawSampler.setup();
+    harmSawSampler.setCurrentPlaybackSampleRate(sampleRate);
+
     widener.outputChannelCount = getTotalNumOutputChannels();
     widener.width = 1.2f;
 }
@@ -163,7 +167,10 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     }
     kbState.processNextMidiBuffer(midiMessages, 0, buffer.getNumSamples(), true);
 
+    harmSawSampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
+
     sawSampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
+
     widener.process(buffer);
 
 }

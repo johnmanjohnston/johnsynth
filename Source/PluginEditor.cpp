@@ -32,13 +32,15 @@ void JohnSynthAudioProcessorEditor::paint (juce::Graphics& g)
 
     g.setFont(28.f);
     g.setColour (juce::Colour(100, 100, 100));
-    //g.drawFittedText ("johnsynth", getLocalBounds(), juce::Justification::centred, 1);
     g.drawText("johnsynth", 14, 0, 150, 50, juce::Justification::left, false);
+
+    g.setFont(14.f);
+    g.drawFittedText("JohnSynth is free and open-source, programmed by Ethan John (johnmanjohnston)\nand is available at https://github.com/johnmanjohnston/johnsynth/", 14, 380, 700, 100, juce::Justification::left, false);
 }
 
 void JohnSynthAudioProcessorEditor::resized()
 {
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
-    kbComponent.setBounds(0, 400, 850, 80);
+    kbComponent.setBounds(0, 420, 850, 80);
 }

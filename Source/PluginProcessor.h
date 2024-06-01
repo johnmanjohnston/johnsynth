@@ -61,6 +61,8 @@ public:
     juce::MidiKeyboardState kbState;
 
     SawSampler sawSampler;
+    SawSampler harmSawSampler;
+
     Widener widener;
 private:
     //==============================================================================
