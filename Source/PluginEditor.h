@@ -25,6 +25,8 @@ public:
     void paint (juce::Graphics&) override;
     void resized() override;
 
+    juce::MidiKeyboardComponent kbComponent;
+
     static const juce::Font getHelvetica()
     {
         static juce::Font typeface = juce::Typeface::createSystemTypefaceFor(BinaryData::Helvetica_ttf, BinaryData::Helvetica_ttfSize);

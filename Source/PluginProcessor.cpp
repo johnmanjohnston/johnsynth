@@ -161,9 +161,11 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
 
         // ..do something to the data...
     }
+    kbState.processNextMidiBuffer(midiMessages, 0, buffer.getNumSamples(), true);
 
     sawSampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
     widener.process(buffer);
+
 }
 
 //==============================================================================
