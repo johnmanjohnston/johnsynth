@@ -11,6 +11,7 @@
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
 #include "JSLookAndFeel.h"
+#include "JSMidiKeyboardComponent.h"
 
 //==============================================================================
 /**
@@ -25,7 +26,7 @@ public:
     void paint (juce::Graphics&) override;
     void resized() override;
 
-    juce::MidiKeyboardComponent kbComponent;
+    JSMidiKeyboardComponent kbComponent;
 
     static const juce::Font getHelvetica()
     {
