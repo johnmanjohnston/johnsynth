@@ -7,6 +7,8 @@
               companyWebsite="https://johnmanjohnston.github.io">
   <MAINGROUP id="HIO2PJ" name="JohnSynth">
     <GROUP id="{546D523D-3788-8294-D9ED-78E2DFE2F0CD}" name="Source">
+      <FILE id="PES20q" name="UIPanel.cpp" compile="1" resource="0" file="Source/UIPanel.cpp"/>
+      <FILE id="nuXVWi" name="UIPanel.h" compile="0" resource="0" file="Source/UIPanel.h"/>
       <FILE id="FPap0s" name="LHFilter.cpp" compile="1" resource="0" file="Source/LHFilter.cpp"/>
       <FILE id="qFqeiu" name="LHFilter.h" compile="0" resource="0" file="Source/LHFilter.h"/>
       <FILE id="byNl3y" name="JSMidiKeyboardComponent.cpp" compile="1" resource="0"
@@ -30,6 +32,7 @@
           file="assets/Helvetica-Light.ttf"/>
     <FILE id="J4zEz0" name="SpaceMono-Regular.ttf" compile="0" resource="1"
           file="assets/SpaceMono-Regular.ttf"/>
+    <FILE id="U7hFXc" name="empty_panel.png" compile="0" resource="1" file="assets/empty_panel.png"/>
   </MAINGROUP>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>

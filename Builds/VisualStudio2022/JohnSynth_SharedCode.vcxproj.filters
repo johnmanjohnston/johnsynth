@@ -616,6 +616,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\UIPanel.cpp">
+      <Filter>JohnSynth\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\LHFilter.cpp">
       <Filter>JohnSynth\Source</Filter>
     </ClCompile>
@@ -3156,6 +3159,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\UIPanel.h">
+      <Filter>JohnSynth\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\LHFilter.h">
       <Filter>JohnSynth\Source</Filter>
     </ClInclude>
@@ -6156,6 +6162,9 @@
       <Filter>JohnSynth</Filter>
     </None>
     <None Include="..\..\assets\SpaceMono-Regular.ttf">
+      <Filter>JohnSynth</Filter>
+    </None>
+    <None Include="..\..\assets\empty_panel.png">
       <Filter>JohnSynth</Filter>
     </None>
     <None Include="..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

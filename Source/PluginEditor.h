@@ -12,6 +12,7 @@
 #include "PluginProcessor.h"
 #include "JSLookAndFeel.h"
 #include "JSMidiKeyboardComponent.h"
+#include "UIPanel.h"
 
 //==============================================================================
 /**
@@ -43,6 +44,15 @@ private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     JohnSynthAudioProcessor& audioProcessor;
+
+    float panelSizeDivider = 1.3f;
+    int horizontalSpaceBetweenPanels = 24;
+    int panelLeftMargin = 96;
+    int panelTopMargin = 80;
+
+    Panel* filterPanel = new Panel(panelLeftMargin,                                                                         panelTopMargin, 265 / panelSizeDivider, 150 / panelSizeDivider, "FILTER");
+    Panel* adsrPanel = new Panel(  panelLeftMargin + (265 / panelSizeDivider) + (horizontalSpaceBetweenPanels),             panelTopMargin, 265 / panelSizeDivider, 150 / panelSizeDivider, "ADSR");
+    Panel* ottPanel = new Panel(   panelLeftMargin + ((265 / panelSizeDivider) * 2) + (horizontalSpaceBetweenPanels * 2),   panelTopMargin, 265 / panelSizeDivider, 150 / panelSizeDivider, "OTT");
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JohnSynthAudioProcessorEditor)
 };

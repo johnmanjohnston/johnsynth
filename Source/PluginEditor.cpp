@@ -30,12 +30,16 @@ void JohnSynthAudioProcessorEditor::paint (juce::Graphics& g)
     g.fillAll(juce::Colour(10, 10, 10));
     g.setFont(getHelveticaLight());
 
-    g.setFont(28.f);
+    g.setFont(32.f);
     g.setColour (juce::Colour(100, 100, 100));
     g.drawText("johnsynth", 14, 0, 150, 50, juce::Justification::left, false);
 
     g.setFont(14.f);
     g.drawFittedText("JohnSynth is free and open-source, programmed by Ethan John (johnmanjohnston)\nand is available at https://github.com/johnmanjohnston/johnsynth/", 14, 380, 700, 100, juce::Justification::left, false);
+    
+    filterPanel->paint(g);
+    adsrPanel->paint(g);
+    ottPanel->paint(g);
 }
 
 void JohnSynthAudioProcessorEditor::resized()
