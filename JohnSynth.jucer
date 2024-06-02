@@ -25,9 +25,11 @@
             file="Source/PluginEditor.cpp"/>
       <FILE id="rgjKW5" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
-    <FILE id="FgX4ME" name="Helvetica.ttf" compile="0" resource="1" file="../../../Downloads/Helvetica.ttf"/>
-    <FILE id="Kbn6P3" name="Helvetica-Light.ttf" compile="0" resource="1"
-          file="../../../Downloads/Helvetica-Light.ttf"/>
+    <FILE id="stFNWA" name="Helvetica.ttf" compile="0" resource="1" file="assets/Helvetica.ttf"/>
+    <FILE id="blVYOQ" name="Helvetica-Light.ttf" compile="0" resource="1"
+          file="assets/Helvetica-Light.ttf"/>
+    <FILE id="J4zEz0" name="SpaceMono-Regular.ttf" compile="0" resource="1"
+          file="assets/SpaceMono-Regular.ttf"/>
   </MAINGROUP>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>

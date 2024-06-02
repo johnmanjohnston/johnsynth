@@ -6149,10 +6149,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\Downloads\Helvetica.ttf">
+    <None Include="..\..\assets\Helvetica.ttf">
       <Filter>JohnSynth</Filter>
     </None>
-    <None Include="..\..\..\..\..\Downloads\Helvetica-Light.ttf">
+    <None Include="..\..\assets\Helvetica-Light.ttf">
+      <Filter>JohnSynth</Filter>
+    </None>
+    <None Include="..\..\assets\SpaceMono-Regular.ttf">
       <Filter>JohnSynth</Filter>
     </None>
     <None Include="..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\CMakeLists.txt">

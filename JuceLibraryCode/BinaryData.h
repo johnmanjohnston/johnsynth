@@ -14,8 +14,11 @@ namespace BinaryData
     extern const char*   HelveticaLight_ttf;
     const int            HelveticaLight_ttfSize = 161716;
 
+    extern const char*   SpaceMonoRegular_ttf;
+    const int            SpaceMonoRegular_ttfSize = 90904;
+
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 2;
+    const int namedResourceListSize = 3;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

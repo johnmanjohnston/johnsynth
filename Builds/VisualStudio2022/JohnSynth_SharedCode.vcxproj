@@ -3499,8 +3499,9 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\Downloads\Helvetica.ttf"/>
-    <None Include="..\..\..\..\..\Downloads\Helvetica-Light.ttf"/>
+    <None Include="..\..\assets\Helvetica.ttf"/>
+    <None Include="..\..\assets\Helvetica-Light.ttf"/>
+    <None Include="..\..\assets\SpaceMono-Regular.ttf"/>
     <None Include="..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\README.md"/>
     <None Include="..\..\..\..\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
