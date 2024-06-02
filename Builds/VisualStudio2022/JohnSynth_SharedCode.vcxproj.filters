@@ -616,6 +616,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\LHFilter.cpp">
+      <Filter>JohnSynth\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\JSMidiKeyboardComponent.cpp">
       <Filter>JohnSynth\Source</Filter>
     </ClCompile>
@@ -3153,6 +3156,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\LHFilter.h">
+      <Filter>JohnSynth\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\JSMidiKeyboardComponent.h">
       <Filter>JohnSynth\Source</Filter>
     </ClInclude>

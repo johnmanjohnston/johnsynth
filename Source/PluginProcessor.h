@@ -11,6 +11,7 @@
 #include <JuceHeader.h>
 #include "SawSampler.h"
 #include "Width.h"
+#include "LHFilter.h"
 
 //==============================================================================
 /**
@@ -64,6 +65,7 @@ public:
     SawSampler harmSawSampler;
 
     Widener widener;
+    LHFilter filter;
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JohnSynthAudioProcessor)

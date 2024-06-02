@@ -4,6 +4,8 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="HIO2PJ" name="JohnSynth">
     <GROUP id="{546D523D-3788-8294-D9ED-78E2DFE2F0CD}" name="Source">
+      <FILE id="FPap0s" name="LHFilter.cpp" compile="1" resource="0" file="Source/LHFilter.cpp"/>
+      <FILE id="qFqeiu" name="LHFilter.h" compile="0" resource="0" file="Source/LHFilter.h"/>
       <FILE id="byNl3y" name="JSMidiKeyboardComponent.cpp" compile="1" resource="0"
             file="Source/JSMidiKeyboardComponent.cpp"/>
       <FILE id="PbMGtP" name="JSMidiKeyboardComponent.h" compile="0" resource="0"

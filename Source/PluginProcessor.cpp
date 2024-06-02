@@ -104,6 +104,12 @@ void JohnSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
 
     widener.outputChannelCount = getTotalNumOutputChannels();
     widener.width = 1.2f;
+
+    juce::dsp::ProcessSpec spec{};
+    spec.maximumBlockSize = samplesPerBlock;
+    spec.numChannels = getTotalNumOutputChannels();
+    spec.sampleRate = sampleRate;
+    filter.prepare(spec);
 }
 
 void JohnSynthAudioProcessor::releaseResources()
@@ -172,7 +178,8 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     sawSampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
 
     widener.process(buffer);
-
+    filter.applyHighCut(buffer);
+    filter.applyLowCut(buffer);
 }
 
 //==============================================================================

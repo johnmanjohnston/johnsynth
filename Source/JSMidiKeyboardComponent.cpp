@@ -72,7 +72,7 @@ void JSMidiKeyboardComponent::drawWhiteNote(int midiNoteNumber, Graphics& g, Rec
 
 void JSMidiKeyboardComponent::drawBlackNote(int midiNoteNumber, Graphics& g, Rectangle<float> area, bool isDown, bool isOver, Colour noteFillColour)
 {
-    auto c = Colour(60, 60, 60);
+    auto c = Colour(70, 70, 70);
 
     if (isDown)  c = Colour(30, 30, 30);
     if (isOver)  c = Colour(34, 34, 34);
