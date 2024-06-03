@@ -178,8 +178,7 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     sawSampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
 
     widener.process(buffer);
-    filter.applyHighCut(buffer);
-    filter.applyLowCut(buffer);
+    filter.process(buffer);
 }
 
 //==============================================================================
