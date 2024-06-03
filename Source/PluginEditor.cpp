@@ -11,12 +11,15 @@
 
 //==============================================================================
 JohnSynthAudioProcessorEditor::JohnSynthAudioProcessorEditor (JohnSynthAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p), kbComponent(p.kbState, juce::KeyboardComponentBase::horizontalKeyboard)
+    : AudioProcessorEditor (&p), audioProcessor (p), kbComponent(p.kbState, juce::KeyboardComponentBase::horizontalKeyboard),
+    lpAttachment(*p.lpFreq, lpSlider)
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     setSize (850, 500);
     addAndMakeVisible(kbComponent);
+
+    addAndMakeVisible(lpSlider);
 }
 
 JohnSynthAudioProcessorEditor::~JohnSynthAudioProcessorEditor()
@@ -47,4 +50,5 @@ void JohnSynthAudioProcessorEditor::resized()
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
     kbComponent.setBounds(0, 420, 850, 80);
+    lpSlider.setBounds(10, 50, 200, 50);
 }

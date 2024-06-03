@@ -22,10 +22,19 @@ JohnSynthAudioProcessor::JohnSynthAudioProcessor()
                        )
 #endif
 {
+    addParameter(lpFreq = new juce::AudioParameterFloat(
+        "lpFreq", 
+        "LpFreq",
+        20.f, 
+        21000.f,
+        1200.f
+    ));
 }
 
 JohnSynthAudioProcessor::~JohnSynthAudioProcessor()
 {
+    // you absolute monkey if you put any code here remember that this
+    // is the DESTRUCTOR NOT THE CONSTRUCTOR
 }
 
 //==============================================================================

@@ -54,5 +54,8 @@ private:
     Panel* adsrPanel = new Panel(  panelLeftMargin + (265 / panelSizeDivider) + (horizontalSpaceBetweenPanels),             panelTopMargin, 265 / panelSizeDivider, 150 / panelSizeDivider, "ADSR");
     Panel* ottPanel = new Panel(   panelLeftMargin + ((265 / panelSizeDivider) * 2) + (horizontalSpaceBetweenPanels * 2),   panelTopMargin, 265 / panelSizeDivider, 150 / panelSizeDivider, "OTT");
 
+    juce::Slider lpSlider;
+    juce::SliderParameterAttachment lpAttachment;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JohnSynthAudioProcessorEditor)
 };

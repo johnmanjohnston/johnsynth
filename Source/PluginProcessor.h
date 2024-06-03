@@ -66,6 +66,8 @@ public:
 
     Widener widener;
     LHFilter filter;
+
+    juce::AudioParameterFloat* lpFreq;
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JohnSynthAudioProcessor)
