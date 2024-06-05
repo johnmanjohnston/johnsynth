@@ -214,9 +214,9 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     // filter.process(buffer);
 
     // update filter if the parameters don't match
-    if (filter.parametersMatch(*lpFreq, *lpRes) == false) 
+    if (filter.parametersMatch(*lpFreq, *lpRes, *hpFreq, *hpRes) == false) 
     {
-        filter.updateFilters(getSampleRate(), *lpFreq, *lpRes);
+        filter.updateFilters(getSampleRate(), *lpFreq, *lpRes, *hpFreq, *hpRes);
     }
 
     filter.process(buffer);

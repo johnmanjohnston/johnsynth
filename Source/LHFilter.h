@@ -20,9 +20,13 @@ public:
     float previousLowFreq;
     float previousLowRes;
 
+    float previousHighFreq;
+    float previousHighRes;
+
     // dsp
     juce::dsp::ProcessorDuplicator<juce::dsp::StateVariableFilter::Filter <float>, juce::dsp::StateVariableFilter::Parameters <float>> lpf;
+    juce::dsp::ProcessorDuplicator<juce::dsp::StateVariableFilter::Filter <float>, juce::dsp::StateVariableFilter::Parameters <float>> hpf;
     
-    void updateFilters(double sampleRate, float lowFrequency, float lowResonance);
-    bool parametersMatch(float lowFrequency, float lowResonance);
+    void updateFilters(double sampleRate, float lowFrequency, float lowResonance, float highFrequency, float highResonance);
+    bool parametersMatch(float lowFrequency, float lowResonance, float highFrequency, float highResonance);
 };
