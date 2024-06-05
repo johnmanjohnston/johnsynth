@@ -16,7 +16,13 @@ class LHFilter
 public:
     void process(juce::AudioBuffer<float> buffer);
     void prepare(const juce::dsp::ProcessSpec& spec);
+    
+    float previousLowFreq;
+    float previousLowRes;
 
     // dsp
-    juce::dsp::ProcessorDuplicator<juce::dsp::IIR::Filter<float>, juce::dsp::IIR::Coefficients<float>> lowpassIIR;
+    juce::dsp::ProcessorDuplicator<juce::dsp::StateVariableFilter::Filter <float>, juce::dsp::StateVariableFilter::Parameters <float>> lpf;
+    
+    void updateFilters(double sampleRate, float lowFrequency, float lowResonance);
+    bool parametersMatch(float lowFrequency, float lowResonance);
 };

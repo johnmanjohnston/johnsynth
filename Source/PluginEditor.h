@@ -57,5 +57,8 @@ private:
     juce::Slider lpSlider;
     juce::SliderParameterAttachment lpAttachment;
 
+    juce::Slider lpresSlider;
+    juce::SliderParameterAttachment lpresAttachment;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JohnSynthAudioProcessorEditor)
 };

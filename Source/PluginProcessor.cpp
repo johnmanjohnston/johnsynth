@@ -29,6 +29,14 @@ JohnSynthAudioProcessor::JohnSynthAudioProcessor()
         21000.f,
         1200.f
     ));
+
+    addParameter(lpRes = new juce::AudioParameterFloat(
+        "lpres",
+        "LpRes",
+        0.01f,
+        1.f,
+        0.5f
+    ));
 }
 
 JohnSynthAudioProcessor::~JohnSynthAudioProcessor()
@@ -119,10 +127,6 @@ void JohnSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
     spec.numChannels = getTotalNumOutputChannels();
     spec.sampleRate = sampleRate;
     filter.prepare(spec);
-
-    lpf.prepare(spec);
-    lpf.state->type = juce::dsp::StateVariableFilter::Parameters<float>::Type::lowPass;
-    lpf.state->setCutOffFrequency(sampleRate, *lpFreq, .5f);
 }
 
 void JohnSynthAudioProcessor::releaseResources()
@@ -193,12 +197,13 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     widener.process(buffer);
     // filter.process(buffer);
 
+    // update filter if the parameters don't match
+    if (filter.parametersMatch(*lpFreq, *lpRes) == false) 
+    {
+        filter.updateFilters(getSampleRate(), *lpFreq, *lpRes);
+    }
 
-    lpf.state->setCutOffFrequency(getSampleRate(), *lpFreq, .5f);
-
-    dsp::AudioBlock<float> audioBlock(buffer);
-    dsp::ProcessContextReplacing<float> context = audioBlock;
-    lpf.process(context);
+    filter.process(buffer);
 }
 
 //==============================================================================

@@ -23,11 +23,28 @@ void LHFilter::process(juce::AudioBuffer<float> buffer)
 {
     juce::dsp::AudioBlock<float> block(buffer);
     juce::dsp::ProcessContextReplacing<float> context(block);
-    lowpassIIR.process(context);
+    lpf.process(context);
 }
 
 void LHFilter::prepare(const juce::dsp::ProcessSpec& spec)
 {
-    lowpassIIR.state = juce::dsp::IIR::Coefficients<float>::makeLowPass(spec.sampleRate, 2000.f);
-    lowpassIIR.prepare(spec);
+    lpf.prepare(spec);
+    lpf.state->type = juce::dsp::StateVariableFilter::Parameters<float>::Type::lowPass;
+}
+
+void LHFilter::updateFilters(double sampleRate, float lowFrequency, float lowResonance)
+{
+    lpf.state->type = juce::dsp::StateVariableFilter::Parameters<float>::Type::lowPass;
+    lpf.state->setCutOffFrequency(sampleRate, lowFrequency, lowResonance);
+
+    previousLowFreq = lowFrequency;
+    previousLowRes = lowResonance;
+}
+
+bool LHFilter::parametersMatch(float lowFrequency, float lowResonance)
+{
+    if (lowFrequency != previousLowFreq) return false;
+    if (lowResonance != previousLowRes) return false;
+
+    return true;
 }
