@@ -66,6 +66,9 @@ public:
 
     Widener widener;
     LHFilter filter;
+    juce::dsp::Limiter<float> masterLimiter;
+    juce::dsp::Compressor<float> masterCompressor;
+    juce::dsp::Compressor<float> harmonyCompressor;
 
     juce::AudioParameterFloat* lpFreq;
     juce::AudioParameterFloat* lpRes;

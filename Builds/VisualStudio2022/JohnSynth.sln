@@ -7,15 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JohnSynth - Standalone Plug
 		{BB05DFEC-18A6-072F-2FE1-84DDD4ABF17E} = {BB05DFEC-18A6-072F-2FE1-84DDD4ABF17E}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JohnSynth - VST3", "JohnSynth_VST3.vcxproj", "{E3F7507A-3354-8A0C-C146-06290162F913}"
-	ProjectSection(ProjectDependencies) = postProject
-		{BB05DFEC-18A6-072F-2FE1-84DDD4ABF17E} = {BB05DFEC-18A6-072F-2FE1-84DDD4ABF17E}
-		{386F9231-564D-8831-BB5C-E3FFDBA19BF8} = {386F9231-564D-8831-BB5C-E3FFDBA19BF8}
-	EndProjectSection
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JohnSynth - Shared Code", "JohnSynth_SharedCode.vcxproj", "{BB05DFEC-18A6-072F-2FE1-84DDD4ABF17E}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JohnSynth - VST3 Manifest Helper", "JohnSynth_VST3ManifestHelper.vcxproj", "{386F9231-564D-8831-BB5C-E3FFDBA19BF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +15,6 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E3F7507A-3354-8A0C-C146-06290162F913}.Debug|x64.ActiveCfg = Debug|x64
-		{E3F7507A-3354-8A0C-C146-06290162F913}.Debug|x64.Build.0 = Debug|x64
-		{E3F7507A-3354-8A0C-C146-06290162F913}.Release|x64.ActiveCfg = Release|x64
-		{E3F7507A-3354-8A0C-C146-06290162F913}.Release|x64.Build.0 = Release|x64
 		{6B29E2CA-ED48-3B9E-577B-1C955B66494B}.Debug|x64.ActiveCfg = Debug|x64
 		{6B29E2CA-ED48-3B9E-577B-1C955B66494B}.Debug|x64.Build.0 = Debug|x64
 		{6B29E2CA-ED48-3B9E-577B-1C955B66494B}.Release|x64.ActiveCfg = Release|x64
@@ -35,10 +23,6 @@ Global
 		{BB05DFEC-18A6-072F-2FE1-84DDD4ABF17E}.Debug|x64.Build.0 = Debug|x64
 		{BB05DFEC-18A6-072F-2FE1-84DDD4ABF17E}.Release|x64.ActiveCfg = Release|x64
 		{BB05DFEC-18A6-072F-2FE1-84DDD4ABF17E}.Release|x64.Build.0 = Release|x64
-		{386F9231-564D-8831-BB5C-E3FFDBA19BF8}.Debug|x64.ActiveCfg = Debug|x64
-		{386F9231-564D-8831-BB5C-E3FFDBA19BF8}.Debug|x64.Build.0 = Debug|x64
-		{386F9231-564D-8831-BB5C-E3FFDBA19BF8}.Release|x64.ActiveCfg = Release|x64
-		{386F9231-564D-8831-BB5C-E3FFDBA19BF8}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
