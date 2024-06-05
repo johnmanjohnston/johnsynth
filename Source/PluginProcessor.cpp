@@ -119,6 +119,10 @@ void JohnSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
     spec.numChannels = getTotalNumOutputChannels();
     spec.sampleRate = sampleRate;
     filter.prepare(spec);
+
+    lpf.prepare(spec);
+    lpf.state->type = juce::dsp::StateVariableFilter::Parameters<float>::Type::lowPass;
+    lpf.state->setCutOffFrequency(sampleRate, *lpFreq, .5f);
 }
 
 void JohnSynthAudioProcessor::releaseResources()
@@ -187,7 +191,14 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     sawSampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
 
     widener.process(buffer);
-    filter.process(buffer);
+    // filter.process(buffer);
+
+
+    lpf.state->setCutOffFrequency(getSampleRate(), *lpFreq, .5f);
+
+    dsp::AudioBlock<float> audioBlock(buffer);
+    dsp::ProcessContextReplacing<float> context = audioBlock;
+    lpf.process(context);
 }
 
 //==============================================================================

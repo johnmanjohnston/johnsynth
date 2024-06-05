@@ -68,6 +68,8 @@ public:
     LHFilter filter;
 
     juce::AudioParameterFloat* lpFreq;
+
+    juce::dsp::ProcessorDuplicator<juce::dsp::StateVariableFilter::Filter <float>, juce::dsp::StateVariableFilter::Parameters <float>> lpf;
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JohnSynthAudioProcessor)
