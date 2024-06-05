@@ -12,7 +12,7 @@
 //==============================================================================
 JohnSynthAudioProcessorEditor::JohnSynthAudioProcessorEditor (JohnSynthAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p), kbComponent(p.kbState, juce::KeyboardComponentBase::horizontalKeyboard),
-    lpAttachment(*p.lpFreq, lpSlider), lpresAttachment(*p.lpRes, lpresSlider)
+    lpAttachment(*p.lpFreq, lpSlider), lpresAttachment(*p.lpRes, lpresSlider), hpAttachment(*p.hpFreq, hpSlider), hpresAttachment(*p.hpRes, hpresSlider)
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
@@ -21,6 +21,9 @@ JohnSynthAudioProcessorEditor::JohnSynthAudioProcessorEditor (JohnSynthAudioProc
 
     addAndMakeVisible(lpSlider);
     addAndMakeVisible(lpresSlider);
+
+    addAndMakeVisible(hpSlider);
+    addAndMakeVisible(hpresSlider);
 }
 
 JohnSynthAudioProcessorEditor::~JohnSynthAudioProcessorEditor()
@@ -53,4 +56,7 @@ void JohnSynthAudioProcessorEditor::resized()
     kbComponent.setBounds(0, 420, 850, 80);
     lpSlider.setBounds(10, 50, 200, 30);
     lpresSlider.setBounds(10, 120, 200, 30);
+
+    hpSlider.setBounds(510, 50, 200, 30);
+    hpresSlider.setBounds(510, 120, 200, 30);
 }

@@ -70,6 +70,9 @@ public:
     juce::AudioParameterFloat* lpFreq;
     juce::AudioParameterFloat* lpRes;
 
+    juce::AudioParameterFloat* hpFreq;
+    juce::AudioParameterFloat* hpRes;
+
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JohnSynthAudioProcessor)

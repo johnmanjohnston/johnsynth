@@ -37,6 +37,22 @@ JohnSynthAudioProcessor::JohnSynthAudioProcessor()
         1.f,
         0.5f
     ));
+
+    addParameter(hpFreq = new juce::AudioParameterFloat(
+        "hpFreq",
+        "hpFreq",
+        20.f,
+        21000.f,
+        1200.f
+    ));
+
+    addParameter(hpRes = new juce::AudioParameterFloat(
+        "hpres",
+        "hpRes",
+        0.01f,
+        1.f,
+        0.5f
+    ));
 }
 
 JohnSynthAudioProcessor::~JohnSynthAudioProcessor()
