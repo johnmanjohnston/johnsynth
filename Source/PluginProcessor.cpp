@@ -160,6 +160,10 @@ void JohnSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
     harmonyCompressor.setRatio(4.f);
     harmonyCompressor.setRelease(100.f);
     harmonyCompressor.setThreshold(-6.f);
+
+    harmonyGain.prepare(spec); harmonyGain.setGainDecibels(-6.f);
+    mainGain.prepare(spec); mainGain.setGainDecibels(-6.f);
+    masterGain.prepare(spec); masterGain.setGainDecibels(-6.f);
 }
 
 void JohnSynthAudioProcessor::releaseResources()
@@ -226,13 +230,12 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     juce::dsp::AudioBlock<float> block(buffer);
     juce::dsp::ProcessContextReplacing<float> context(block);
     harmSawSampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
-    buffer.applyGain(-14.f);
     harmonyCompressor.process(context);
+    harmonyGain.process(context);
 
     sawSampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
-    buffer.applyGain(-12.f);
+    mainGain.process(context);
 
-    widener.process(buffer);
     // filter.process(buffer);
 
     // update filter if the parameters don't match
@@ -243,9 +246,11 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
 
     filter.process(buffer);
 
+    masterGain.process(context);
     masterCompressor.process(context);
     masterLimiter.process(context);
-    buffer.applyGain(-20.f);
+
+    widener.process(buffer);
 }
 
 //==============================================================================

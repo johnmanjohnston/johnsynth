@@ -70,6 +70,10 @@ public:
     juce::dsp::Compressor<float> masterCompressor;
     juce::dsp::Compressor<float> harmonyCompressor;
 
+    juce::dsp::Gain<float> harmonyGain;
+    juce::dsp::Gain<float> mainGain;
+    juce::dsp::Gain<float> masterGain;
+
     juce::AudioParameterFloat* lpFreq;
     juce::AudioParameterFloat* lpRes;
 
