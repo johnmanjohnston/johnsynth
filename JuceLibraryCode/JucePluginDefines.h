@@ -47,7 +47,7 @@
  #define JucePlugin_Desc                   "big saw synth"
 #endif
 #ifndef  JucePlugin_Manufacturer
- #define JucePlugin_Manufacturer           "johmanjohnston"
+ #define JucePlugin_Manufacturer           "johnmanjohnston"
 #endif
 #ifndef  JucePlugin_ManufacturerWebsite
  #define JucePlugin_ManufacturerWebsite    "https://johnmanjohnston.github.io"
@@ -137,7 +137,7 @@
  #define JucePlugin_IAASubType             JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_IAAName
- #define JucePlugin_IAAName                "johmanjohnston: JohnSynth"
+ #define JucePlugin_IAAName                "johnmanjohnston: JohnSynth"
 #endif
 #ifndef  JucePlugin_VSTNumMidiInputs
  #define JucePlugin_VSTNumMidiInputs       16
