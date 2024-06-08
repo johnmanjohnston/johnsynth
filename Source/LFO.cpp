@@ -12,23 +12,32 @@
 
 void LFO::prepare(juce::dsp::ProcessSpec spec)
 {
-    osc.prepare(spec);
-    
-    // TODO: allow user to change oscillator waveform. for now, we'll just hardcode it to be a sine wave
-    osc.initialise([](float x) { return std::sin(x); });
+    sampleRate = spec.sampleRate;
 }
 
 void LFO::setFrequency(float frequency)
 {
-    osc.setFrequency(frequency);
+    this->frequency = frequency;
 }
 
 float LFO::getFrequency()
 {
-    return osc.getFrequency();
+    return frequency;
 }
 
-float LFO::step()
+float LFO::getLFOvalue()
+{
+    return lfoValue;
+}
+
+void LFO::tick()
 {
     // TODO
+    auto increment = juce::MathConstants<float>::twoPi * (frequency / sampleRate);
+    lfoValue = lfoCalculation(phase.advance(increment) - juce::MathConstants<float>::pi);
+}
+
+void LFO::reset()
+{
+    phase.reset();
 }

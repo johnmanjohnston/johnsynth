@@ -14,10 +14,19 @@
 class LFO 
 {
 public:
-    juce::dsp::Oscillator<float> osc;
+    float frequency;
+    float normalizedFrequency;
+    float sampleRate;
+    float lfoValue;
+
+    juce::dsp::Phase<float> phase;
 
     void prepare(juce::dsp::ProcessSpec spec);
     void setFrequency(float frequency);
     float getFrequency();
-    float step();
+    float getLFOvalue();
+    void tick();
+    void reset();
+
+    std::function<float(float)> lfoCalculation = [](float x){ return std::sin(x) * 5.f; };
 };

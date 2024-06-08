@@ -238,9 +238,9 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
 
     sawSampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
 
-    lfo.step();
-    mainGain.setGainDecibels(lfo.getFrequency());
-    DBG(lfo.getFrequency());
+    lfo.tick();
+    DBG(lfo.getLFOvalue());
+    mainGain.setGainDecibels(lfo.getLFOvalue());
     mainGain.process(context);
 
     // filter.process(buffer);
