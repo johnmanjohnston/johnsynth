@@ -616,6 +616,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\LFO.cpp">
+      <Filter>JohnSynth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\HighFreqOTT.cpp">
+      <Filter>JohnSynth\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UIPanel.cpp">
       <Filter>JohnSynth\Source</Filter>
     </ClCompile>
@@ -3159,6 +3165,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\LFO.h">
+      <Filter>JohnSynth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\HighFreqOTT.h">
+      <Filter>JohnSynth\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\UIPanel.h">
       <Filter>JohnSynth\Source</Filter>
     </ClInclude>

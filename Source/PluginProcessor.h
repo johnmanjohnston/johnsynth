@@ -12,6 +12,7 @@
 #include "SawSampler.h"
 #include "Width.h"
 #include "LHFilter.h"
+#include "LFO.h"
 
 //==============================================================================
 /**
@@ -63,6 +64,8 @@ public:
 
     SawSampler sawSampler;
     SawSampler harmSawSampler;
+
+    LFO lfo;
 
     Widener widener;
     LHFilter filter;

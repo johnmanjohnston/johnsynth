@@ -7,6 +7,10 @@
               companyWebsite="https://johnmanjohnston.github.io" pluginFormats="buildStandalone">
   <MAINGROUP id="HIO2PJ" name="JohnSynth">
     <GROUP id="{546D523D-3788-8294-D9ED-78E2DFE2F0CD}" name="Source">
+      <FILE id="SCG73l" name="LFO.cpp" compile="1" resource="0" file="Source/LFO.cpp"/>
+      <FILE id="pIBcKB" name="LFO.h" compile="0" resource="0" file="Source/LFO.h"/>
+      <FILE id="M4bveu" name="HighFreqOTT.cpp" compile="1" resource="0" file="Source/HighFreqOTT.cpp"/>
+      <FILE id="tKsmTo" name="HighFreqOTT.h" compile="0" resource="0" file="Source/HighFreqOTT.h"/>
       <FILE id="PES20q" name="UIPanel.cpp" compile="1" resource="0" file="Source/UIPanel.cpp"/>
       <FILE id="nuXVWi" name="UIPanel.h" compile="0" resource="0" file="Source/UIPanel.h"/>
       <FILE id="FPap0s" name="LHFilter.cpp" compile="1" resource="0" file="Source/LHFilter.cpp"/>

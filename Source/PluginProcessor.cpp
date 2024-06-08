@@ -164,6 +164,9 @@ void JohnSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
     harmonyGain.prepare(spec); harmonyGain.setGainDecibels(-6.f);
     mainGain.prepare(spec); mainGain.setGainDecibels(-6.f);
     masterGain.prepare(spec); masterGain.setGainDecibels(-6.f);
+
+    lfo.prepare(spec);
+    lfo.setFrequency(120.f);
 }
 
 void JohnSynthAudioProcessor::releaseResources()
@@ -234,6 +237,10 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     harmonyGain.process(context);
 
     sawSampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
+
+    lfo.step();
+    mainGain.setGainDecibels(lfo.getFrequency());
+    DBG(lfo.getFrequency());
     mainGain.process(context);
 
     // filter.process(buffer);

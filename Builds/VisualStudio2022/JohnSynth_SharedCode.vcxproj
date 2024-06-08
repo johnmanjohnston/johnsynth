@@ -139,6 +139,8 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\LFO.cpp"/>
+    <ClCompile Include="..\..\Source\HighFreqOTT.cpp"/>
     <ClCompile Include="..\..\Source\UIPanel.cpp"/>
     <ClCompile Include="..\..\Source\LHFilter.cpp"/>
     <ClCompile Include="..\..\Source\JSMidiKeyboardComponent.cpp"/>
@@ -2501,6 +2503,8 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\LFO.h"/>
+    <ClInclude Include="..\..\Source\HighFreqOTT.h"/>
     <ClInclude Include="..\..\Source\UIPanel.h"/>
     <ClInclude Include="..\..\Source\LHFilter.h"/>
     <ClInclude Include="..\..\Source\JSMidiKeyboardComponent.h"/>
