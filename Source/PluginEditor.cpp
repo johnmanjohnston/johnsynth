@@ -39,7 +39,7 @@ void JohnSynthAudioProcessorEditor::paint (juce::Graphics& g)
     g.fillAll(juce::Colour(10, 10, 10));
     g.setFont(getHelveticaLight());
 
-    g.setFont(32.f);
+    g.setFont(34.f);
     g.setColour (juce::Colour(100, 100, 100));
     g.drawText("johnsynth", 14, 0, 150, 50, juce::Justification::left, false);
 
@@ -52,7 +52,7 @@ void JohnSynthAudioProcessorEditor::paint (juce::Graphics& g)
 
     lpSlider.setLookAndFeel(&jsLookAndFeel);
    // lpSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 200, 200);
-    lpSlider.setTextValueSuffix("asdf");
+    lpSlider.setTextValueSuffix("hz - HIGH CUT");
 }
 
 void JohnSynthAudioProcessorEditor::resized()
@@ -61,9 +61,9 @@ void JohnSynthAudioProcessorEditor::resized()
     // subcomponents in your editor..
     kbComponent.setBounds(0, 420, 850, 80);
 
-    lpSlider.setBounds(10, 50, 200, 60);
-
-    lpresSlider.setBounds(10, 120, 200, 30);
+    //lpSlider.setBounds(70, 120, 200, 60);
+    lpSlider.setBounds(filterPanel->x + 14, filterPanel->y + 30, 200, 60);
+    lpresSlider.setBounds(10, 320, 200, 30);
 
     hpSlider.setBounds(510, 50, 200, 30);
     hpresSlider.setBounds(510, 120, 200, 30);
