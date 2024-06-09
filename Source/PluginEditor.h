@@ -66,5 +66,7 @@ private:
     juce::Slider hpresSlider;
     juce::SliderParameterAttachment hpresAttachment;
 
+    JSLookAndFeel jsLookAndFeel;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JohnSynthAudioProcessorEditor)
 };

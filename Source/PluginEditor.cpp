@@ -24,10 +24,12 @@ JohnSynthAudioProcessorEditor::JohnSynthAudioProcessorEditor (JohnSynthAudioProc
 
     addAndMakeVisible(hpSlider);
     addAndMakeVisible(hpresSlider);
+
 }
 
 JohnSynthAudioProcessorEditor::~JohnSynthAudioProcessorEditor()
 {
+    lpSlider.setLookAndFeel(nullptr);
 }
 
 //==============================================================================
@@ -47,6 +49,10 @@ void JohnSynthAudioProcessorEditor::paint (juce::Graphics& g)
     filterPanel->paint(g);
     adsrPanel->paint(g);
     ottPanel->paint(g);
+
+    lpSlider.setLookAndFeel(&jsLookAndFeel);
+   // lpSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 200, 200);
+    lpSlider.setTextValueSuffix("asdf");
 }
 
 void JohnSynthAudioProcessorEditor::resized()
@@ -54,7 +60,9 @@ void JohnSynthAudioProcessorEditor::resized()
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
     kbComponent.setBounds(0, 420, 850, 80);
-    lpSlider.setBounds(10, 50, 200, 30);
+
+    lpSlider.setBounds(10, 50, 200, 60);
+
     lpresSlider.setBounds(10, 120, 200, 30);
 
     hpSlider.setBounds(510, 50, 200, 30);
