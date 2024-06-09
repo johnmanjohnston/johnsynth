@@ -28,5 +28,9 @@ public:
     void tick();
     void reset();
 
-    std::function<float(float)> lfoCalculation = [](float x){ return std::sin(x) * 5.f; };
+    std::function<float(float)> lfoCalculation = [](float x) { return (x / juce::MathConstants<float>::pi) * 5.f; };
+   
+    std::function<float(float)> saw = [](float x) { return  x / juce::MathConstants<float>::pi; };
+    std::function<float(float)> sin = [](float x) { return std::sin(x); };
+    std::function<float(float)> triangle = [](float x) { return (2 / juce::MathConstants<float>::pi) * std::asin(std::sin(x)); };
 };

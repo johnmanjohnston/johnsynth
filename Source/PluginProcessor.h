@@ -65,8 +65,6 @@ public:
     SawSampler sawSampler;
     SawSampler harmSawSampler;
 
-    LFO lfo;
-
     Widener widener;
     LHFilter filter;
     juce::dsp::Limiter<float> masterLimiter;

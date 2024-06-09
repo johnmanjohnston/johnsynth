@@ -13,6 +13,7 @@
 void LFO::prepare(juce::dsp::ProcessSpec spec)
 {
     sampleRate = spec.sampleRate;
+    lfoCalculation = triangle;
 }
 
 void LFO::setFrequency(float frequency)
@@ -32,7 +33,6 @@ float LFO::getLFOvalue()
 
 void LFO::tick()
 {
-    // TODO
     auto increment = juce::MathConstants<float>::twoPi * (frequency / sampleRate);
     lfoValue = lfoCalculation(phase.advance(increment) - juce::MathConstants<float>::pi);
 }
