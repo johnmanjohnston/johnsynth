@@ -37,6 +37,8 @@
     <FILE id="J4zEz0" name="SpaceMono-Regular.ttf" compile="0" resource="1"
           file="assets/SpaceMono-Regular.ttf"/>
     <FILE id="U7hFXc" name="empty_panel.png" compile="0" resource="1" file="assets/empty_panel.png"/>
+    <FILE id="VEY2YN" name="SpaceMono-Bold.ttf" compile="0" resource="1"
+          file="assets/SpaceMono-Bold.ttf"/>
   </MAINGROUP>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>

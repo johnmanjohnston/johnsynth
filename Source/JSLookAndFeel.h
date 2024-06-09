@@ -14,15 +14,24 @@ using namespace juce;
 
 class JSLookAndFeel : public LookAndFeel_V4 
 {
-    /*
 private:
-    juce::Font getHelvetica() 
+    Font getHelvetica() 
     {
         juce::Typeface::Ptr typeface = juce::Typeface::createSystemTypefaceFor(BinaryData::Helvetica_ttf, BinaryData::HelveticaLight_ttfSize);
         juce::ScopedPointer<juce::Font> font = new juce::Font(typeface);
         font->setHeight(18);
         return *font;
     }
+
+    Font getSpaceMonoBold() 
+    {
+        Typeface::Ptr typeface = Typeface::createSystemTypefaceFor(BinaryData::SpaceMonoBold_ttf, BinaryData::SpaceMonoBold_ttfSize);
+        ScopedPointer<Font> font = new Font(typeface);
+        font->setHeight(22.f);
+        return *font;
+    }
+
+    /*
     juce::Font getLabelFont(juce::Label& label) override 
     {
         return this->getHelvetica();
@@ -37,13 +46,19 @@ public:
         setColour(juce::Slider::trackColourId, juce::Colour(165, 165, 165));
         setColour(juce::Slider::backgroundColourId, juce::Colour(155, 155, 155));
         setColour(juce::Slider::textBoxOutlineColourId, juce::Colours::transparentBlack);
+        //setColour(Slider::textBoxTextColourId, Colours::red);
+    }
+
+    juce::Font getLabelFont(juce::Label& label)
+    {
+        return getSpaceMonoBold();
     }
 
     juce::Slider::SliderLayout getSliderLayout(Slider& slider)
     {
         juce::Slider::SliderLayout layout;
+        layout.sliderBounds = Rectangle<int>(8, 20, 284, 18);
         layout.textBoxBounds = Rectangle<int>(0, 0, 200, 20);
-        layout.sliderBounds = Rectangle<int>(8, 30, 284, 30);
         return layout;
 
         /*

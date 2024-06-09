@@ -3509,6 +3509,7 @@
     <None Include="..\..\assets\Helvetica-Light.ttf"/>
     <None Include="..\..\assets\SpaceMono-Regular.ttf"/>
     <None Include="..\..\assets\empty_panel.png"/>
+    <None Include="..\..\assets\SpaceMono-Bold.ttf"/>
     <None Include="..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\README.md"/>
     <None Include="..\..\..\..\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
