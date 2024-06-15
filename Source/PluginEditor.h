@@ -45,9 +45,9 @@ private:
     // access the processor object that created it.
     JohnSynthAudioProcessor& audioProcessor;
 
-    float panelSizeDivider = 1.16f;
+    float panelSizeDivider = 1.03f;
     int horizontalSpaceBetweenPanels = 24;
-    int panelLeftMargin = 59;
+    int panelLeftMargin = (850 - (((265 / panelSizeDivider) + horizontalSpaceBetweenPanels) * 3) + horizontalSpaceBetweenPanels) / 2; // 850 is the width of the entire window
     int panelTopMargin = 80;
 
     Panel* filterPanel = new Panel(panelLeftMargin,                                                                         panelTopMargin, 265 / panelSizeDivider, 150 / panelSizeDivider, "FILTER");

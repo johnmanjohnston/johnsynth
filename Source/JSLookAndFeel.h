@@ -66,8 +66,8 @@ public:
     {
         juce::Slider::SliderLayout layout;
 
+        layout.textBoxBounds = Rectangle<int>(0, 0, slider.getWidth(), 20);
         layout.sliderBounds = Rectangle<int>(10, 18, slider.getWidth() - 20, slider.getHeight() - 50);
-        layout.textBoxBounds = Rectangle<int>(0, 0, 200, 20);
         
         return layout;
     }

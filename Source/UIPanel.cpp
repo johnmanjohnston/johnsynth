@@ -27,7 +27,7 @@ void Panel::paint(juce::Graphics& g)
     g.setFont(getSpaceMono());
     g.setFont(22.f);
     g.setColour(juce::Colours::black);
-    g.drawText(panelTitle, x, y, width, 20, juce::Justification::centred, false);
+    g.drawText(panelTitle, x, y + 1, width, 20, juce::Justification::centred, false);
 }
 
 const juce::Font Panel::getSpaceMono()

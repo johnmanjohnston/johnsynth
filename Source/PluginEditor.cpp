@@ -30,6 +30,7 @@ JohnSynthAudioProcessorEditor::JohnSynthAudioProcessorEditor (JohnSynthAudioProc
 JohnSynthAudioProcessorEditor::~JohnSynthAudioProcessorEditor()
 {
     lpSlider.setLookAndFeel(nullptr);
+    lpresSlider.setLookAndFeel(nullptr);
 }
 
 //==============================================================================
@@ -51,8 +52,10 @@ void JohnSynthAudioProcessorEditor::paint (juce::Graphics& g)
     ottPanel->paint(g);
 
     lpSlider.setLookAndFeel(&jsLookAndFeel);
+    lpresSlider.setLookAndFeel(&jsLookAndFeel);
    // lpSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 200, 200);
     lpSlider.setTextValueSuffix("hz - HIGH CUT");
+    lpresSlider.setTextValueSuffix("- HIGH CUT RESONANCE");
 }
 
 void JohnSynthAudioProcessorEditor::resized()
@@ -62,8 +65,8 @@ void JohnSynthAudioProcessorEditor::resized()
     kbComponent.setBounds(0, 420, 850, 80);
 
     //lpSlider.setBounds(70, 120, 200, 60);
-    lpSlider.setBounds(filterPanel->x + 14, filterPanel->y + 30, 200, 60);
-    lpresSlider.setBounds(10, 320, 200, 30);
+    lpSlider.setBounds(filterPanel->x + 14, filterPanel->y + 30,    filterPanel->width - 28, 60);
+    lpresSlider.setBounds(filterPanel->x + 14, filterPanel->y + 60, filterPanel->width - 28, 60);
 
     hpSlider.setBounds(510, 50, 200, 30);
     hpresSlider.setBounds(510, 120, 200, 30);
