@@ -21,6 +21,7 @@ Panel::Panel(int x, int y, int width, int height, juce::String title)
 
 void Panel::paint(juce::Graphics& g)
 {
+    //juce::Image panel = juce::ImageCache::getFromMemory(BinaryData::empty_panel_png, BinaryData::empty_panel_pngSize);
     juce::Image panel = juce::ImageCache::getFromMemory(BinaryData::empty_panel_png, BinaryData::empty_panel_pngSize);
     g.drawImageWithin(panel, x, y, width, height, false);
 

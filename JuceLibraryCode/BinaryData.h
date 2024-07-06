@@ -23,8 +23,11 @@ namespace BinaryData
     extern const char*   SpaceMonoBold_ttf;
     const int            SpaceMonoBold_ttfSize = 86636;
 
+    extern const char*   longer_empty_panel_png;
+    const int            longer_empty_panel_pngSize = 1163;
+
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 5;
+    const int namedResourceListSize = 6;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

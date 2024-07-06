@@ -31,6 +31,8 @@ JohnSynthAudioProcessorEditor::~JohnSynthAudioProcessorEditor()
 {
     lpSlider.setLookAndFeel(nullptr);
     lpresSlider.setLookAndFeel(nullptr);
+    hpSlider.setLookAndFeel(nullptr);
+    hpresSlider.setLookAndFeel(nullptr);
 }
 
 //==============================================================================
@@ -53,9 +55,13 @@ void JohnSynthAudioProcessorEditor::paint (juce::Graphics& g)
 
     lpSlider.setLookAndFeel(&jsLookAndFeel);
     lpresSlider.setLookAndFeel(&jsLookAndFeel);
+    hpSlider.setLookAndFeel(&jsLookAndFeel);
+    hpresSlider.setLookAndFeel(&jsLookAndFeel);
    // lpSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 200, 200);
     lpSlider.setTextValueSuffix("hz - HIGH CUT");
-    lpresSlider.setTextValueSuffix("- HIGH CUT RESONANCE");
+    lpresSlider.setTextValueSuffix(" - HIGH CUT RESONANCE");
+    hpSlider.setTextValueSuffix("hz - LOW CUT");
+    hpresSlider.setTextValueSuffix(" - LOW CUT RESONANCE");
 }
 
 void JohnSynthAudioProcessorEditor::resized()
@@ -68,6 +74,6 @@ void JohnSynthAudioProcessorEditor::resized()
     lpSlider.setBounds(filterPanel->x + 14, filterPanel->y + 30,    filterPanel->width - 28, 60);
     lpresSlider.setBounds(filterPanel->x + 14, filterPanel->y + 60, filterPanel->width - 28, 60);
 
-    hpSlider.setBounds(510, 50, 200, 30);
-    hpresSlider.setBounds(510, 120, 200, 30);
+    hpSlider.setBounds(filterPanel->x + 14, filterPanel->y + 90, filterPanel->width - 28, 60);
+    hpresSlider.setBounds(filterPanel->x + 14, filterPanel->y + 120, filterPanel->width - 28, 60);
 }

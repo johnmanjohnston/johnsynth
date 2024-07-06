@@ -6182,6 +6182,9 @@
     <None Include="..\..\assets\SpaceMono-Bold.ttf">
       <Filter>JohnSynth</Filter>
     </None>
+    <None Include="..\..\assets\longer_empty_panel.png">
+      <Filter>JohnSynth</Filter>
+    </None>
     <None Include="..\..\..\..\JUCE\modules\juce_audio_devices\native\oboe\CMakeLists.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\oboe</Filter>
     </None>
