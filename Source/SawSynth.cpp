@@ -16,10 +16,10 @@ void JOscillator::prepare(const juce::dsp::ProcessSpec& spec)
     osc.prepare(spec);
     osc.changeRampTime(.05f);
 
-    adsrParams.attack = 0.005f;
+    adsrParams.attack = 0.05f;
     adsrParams.decay = 1.f;
     adsrParams.sustain = 1.f;
-    adsrParams.release = 0.002f;
+    adsrParams.release = 0.02f;
 
     adsr.setSampleRate(spec.sampleRate);
     adsr.setParameters(adsrParams);
@@ -50,6 +50,8 @@ void SynthVoice::controllerMoved(int controllerNumber, int newControllerValue)
 
 void SynthVoice::renderNextBlock(juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples)
 {
+    if (!osc.adsr.isActive()) return;
+
     juce::AudioBuffer<float> synthesisBufferProxy(outputBuffer.getArrayOfWritePointers(), 2, startSample, numSamples);
     juce::dsp::AudioBlock<float> audioBlock{ synthesisBufferProxy };
 

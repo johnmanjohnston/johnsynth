@@ -14,7 +14,7 @@
 class JOscillator {
 public:
     bool isPrepared = false;
-    juce::dsp::Oscillator<float> osc{ [](float x) { return x / 3.14f; } };
+    juce::dsp::Oscillator<float> osc{ [](float x) { return std::sin(x); } };
 
     juce::ADSR::Parameters adsrParams;
     juce::ADSR adsr;
