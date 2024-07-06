@@ -128,6 +128,7 @@ void JohnSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+    /*
     sawSampler.setup();
     sawSampler.setCurrentPlaybackSampleRate(sampleRate);
 
@@ -167,6 +168,25 @@ void JohnSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
 
     //lfo.prepare(spec);
     //lfo.setFrequency(600.f);
+
+    */
+
+    juce::dsp::ProcessSpec spec{};
+    spec.maximumBlockSize = samplesPerBlock;
+    spec.numChannels = getTotalNumOutputChannels();
+    spec.sampleRate = sampleRate;
+
+    synth.addSound(new SynthSound());
+    synth.addVoice(new SynthVoice());
+    synth.setCurrentPlaybackSampleRate(sampleRate);
+
+    for (int i = 0; i < synth.getNumVoices(); ++i) 
+    {
+        if (auto voice = dynamic_cast<SynthVoice*>(synth.getVoice(i))) 
+        {
+            voice->prepareToPlay(spec);
+        }
+    }
 }
 
 void JohnSynthAudioProcessor::releaseResources()
@@ -232,6 +252,8 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
 
     juce::dsp::AudioBlock<float> block(buffer);
     juce::dsp::ProcessContextReplacing<float> context(block);
+
+    /*
     harmSawSampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
     harmonyCompressor.process(context);
     harmonyGain.process(context);
@@ -254,6 +276,9 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     masterLimiter.process(context);
 
     widener.process(buffer);
+    */
+
+    synth.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
 }
 
 //==============================================================================

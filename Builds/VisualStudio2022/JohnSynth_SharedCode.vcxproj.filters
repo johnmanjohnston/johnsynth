@@ -616,6 +616,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\SawSynth.cpp">
+      <Filter>JohnSynth\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\LFO.cpp">
       <Filter>JohnSynth\Source</Filter>
     </ClCompile>
@@ -3165,6 +3168,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\SawSynth.h">
+      <Filter>JohnSynth\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\LFO.h">
       <Filter>JohnSynth\Source</Filter>
     </ClInclude>

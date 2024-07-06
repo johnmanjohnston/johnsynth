@@ -13,6 +13,7 @@
 #include "Width.h"
 #include "LHFilter.h"
 #include "LFO.h"
+#include "SawSynth.h"
 
 //==============================================================================
 /**
@@ -64,6 +65,9 @@ public:
 
     SawSampler sawSampler;
     SawSampler harmSawSampler;
+
+    // synth
+    juce::Synthesiser synth;
 
     Widener widener;
     LHFilter filter;

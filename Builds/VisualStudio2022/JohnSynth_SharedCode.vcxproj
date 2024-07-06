@@ -139,6 +139,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\SawSynth.cpp"/>
     <ClCompile Include="..\..\Source\LFO.cpp"/>
     <ClCompile Include="..\..\Source\HighFreqOTT.cpp"/>
     <ClCompile Include="..\..\Source\UIPanel.cpp"/>
@@ -2503,6 +2504,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\SawSynth.h"/>
     <ClInclude Include="..\..\Source\LFO.h"/>
     <ClInclude Include="..\..\Source\HighFreqOTT.h"/>
     <ClInclude Include="..\..\Source\UIPanel.h"/>
