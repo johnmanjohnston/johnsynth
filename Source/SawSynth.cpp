@@ -30,14 +30,14 @@ void JOscillator::prepare(const juce::dsp::ProcessSpec& spec)
 // voice
 void SynthVoice::startNote(int midiNoteNumber, float velocity, juce::SynthesiserSound* sound, int currentPitchWheelPosition)
 {
-    osc.adsr.noteOn();
     osc.osc.setFrequency(juce::MidiMessage::getMidiNoteInHertz(midiNoteNumber));
+    osc.adsr.noteOn();
 }
 
 void SynthVoice::stopNote(float velocity, bool allowTailOff)
 {
-    osc.adsr.noteOff();
     clearCurrentNote();
+    osc.adsr.noteOff();
 }
 
 void SynthVoice::pitchWheelMoved(int newPitchWheelValue)
@@ -52,14 +52,24 @@ void SynthVoice::renderNextBlock(juce::AudioBuffer<float>& outputBuffer, int sta
 {
     if (!osc.adsr.isActive()) return;
 
-    juce::AudioBuffer<float> synthesisBufferProxy(outputBuffer.getArrayOfWritePointers(), 2, startSample, numSamples);
-    juce::dsp::AudioBlock<float> audioBlock{ synthesisBufferProxy };
+    // create audio block for temporary audio buffer
+    juce::dsp::AudioBlock<float> audioBlock = juce::dsp::AudioBlock<float>(tempAudioBuffer).getSubBlock(startSample, numSamples);
+    audioBlock.clear();
+
+    // create context and process oscillator, then add ADSR to the temporary audio buffer
+    juce::dsp::ProcessContextReplacing<float> context(audioBlock);
 
     osc.osc.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
-    osc.adsr.applyEnvelopeToBuffer(outputBuffer, startSample, numSamples);
+    osc.adsr.applyEnvelopeToBuffer(tempAudioBuffer, startSample, numSamples);
+
+    // add the temporary audio buffer to the final output buffer
+    juce::dsp::AudioBlock<float>(outputBuffer).getSubBlock((size_t)startSample, (size_t)numSamples).add(audioBlock);
 }
 
 void SynthVoice::prepareToPlay(juce::dsp::ProcessSpec& spec)
 {
     osc.prepare(spec);
+ 
+    tempBlock = juce::dsp::AudioBlock<float>(heapBlock, spec.numChannels, spec.maximumBlockSize);
+    tempAudioBuffer.setSize(spec.numChannels, spec.maximumBlockSize);
 }

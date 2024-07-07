@@ -41,5 +41,9 @@ public:
     virtual void 	controllerMoved(int controllerNumber, int newControllerValue) override;
     virtual void 	renderNextBlock(juce::AudioBuffer< float >& outputBuffer, int startSample, int numSamples) override;
 
-            JOscillator osc;
+    JOscillator osc;
+
+    juce::AudioBuffer<float> tempAudioBuffer;
+    juce::dsp::AudioBlock<float> tempBlock;
+    juce::HeapBlock<char> heapBlock;
 };
