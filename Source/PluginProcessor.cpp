@@ -128,16 +128,15 @@ void JohnSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
-    /*
-    sawSampler.setup();
-    sawSampler.setCurrentPlaybackSampleRate(sampleRate);
+    //sawSampler.setup();
+    //sawSampler.setCurrentPlaybackSampleRate(sampleRate);
 
-    harmSawSampler.transpose = -12;
-    harmSawSampler.setup();
-    harmSawSampler.setCurrentPlaybackSampleRate(sampleRate);
+    //harmSawSampler.transpose = -12;
+    //harmSawSampler.setup();
+    //harmSawSampler.setCurrentPlaybackSampleRate(sampleRate);
 
     widener.outputChannelCount = getTotalNumOutputChannels();
-    widener.width = 1.2f;
+    widener.width = 2.2f;
 
     juce::dsp::ProcessSpec spec{};
     spec.maximumBlockSize = samplesPerBlock;
@@ -163,18 +162,11 @@ void JohnSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
     harmonyCompressor.setThreshold(-6.f);
 
     harmonyGain.prepare(spec); harmonyGain.setGainDecibels(-6.f);
-    mainGain.prepare(spec); mainGain.setGainDecibels(-6.f);
+    mainGain.prepare(spec); mainGain.setGainDecibels(-12.f);
     masterGain.prepare(spec); masterGain.setGainDecibels(-6.f);
 
     //lfo.prepare(spec);
     //lfo.setFrequency(600.f);
-
-    */
-
-    juce::dsp::ProcessSpec spec{};
-    spec.maximumBlockSize = samplesPerBlock;
-    spec.numChannels = getTotalNumOutputChannels();
-    spec.sampleRate = sampleRate;
 
     //synth.clearVoices();
     for (int i = 0; i < 16; ++i) 
@@ -275,7 +267,24 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     widener.process(buffer);
     */
 
+    juce::dsp::AudioBlock<float> audioBlock = juce::dsp::AudioBlock<float>(buffer, getTotalNumOutputChannels());
+    juce::dsp::ProcessContextReplacing<float> context(audioBlock);
+
     synth.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
+    mainGain.process(context);
+
+// update filter if the parameters don't match
+if (filter.parametersMatch(*lpFreq, *lpRes, *hpFreq, *hpRes) == false)
+{
+    filter.updateFilters(getSampleRate(), *lpFreq, *lpRes, *hpFreq, *hpRes);
+}
+filter.process(buffer);
+
+
+    masterGain.process(context);
+    masterCompressor.process(context);
+    masterLimiter.process(context);
+    widener.process(buffer);
 }
 
 //==============================================================================
