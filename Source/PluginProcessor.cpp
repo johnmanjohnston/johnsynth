@@ -271,6 +271,7 @@ void JohnSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     juce::dsp::ProcessContextReplacing<float> context(audioBlock);
 
     synth.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
+/*
     mainGain.process(context);
 
 // update filter if the parameters don't match
@@ -280,10 +281,11 @@ if (filter.parametersMatch(*lpFreq, *lpRes, *hpFreq, *hpRes) == false)
 }
 filter.process(buffer);
 
+    */
 
-    masterGain.process(context);
-    masterCompressor.process(context);
-    masterLimiter.process(context);
+    //masterCompressor.process(context);
+   // masterGain.process(context); 
+    //masterLimiter.process(context);
     widener.process(buffer);
 }
 

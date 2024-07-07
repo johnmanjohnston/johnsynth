@@ -11,10 +11,33 @@
 #pragma once
 #include <JuceHeader.h>
 
+#define SAW_OSC juce::dsp::Oscillator<float>{ [](float x) { return (x / juce::MathConstants<float>::pi); } }
+#define BASS_SAW_OSC juce::dsp::Oscillator<float>{ [](float x) { return 0.5f * (x / juce::MathConstants<float>::pi); } }
+
 class JOscillator {
 public:
     bool isPrepared = false;
     juce::dsp::Oscillator<float> osc{ [](float x) { return x / juce::MathConstants<float>::pi; } };
+
+    float detuneAmounts[8] = { -.01f, -0.009f, -0.006f, -0.003f, 0.01f, 0.006f, 0.009f, 0.02f };
+
+    juce::dsp::Oscillator<float> unisons[8] = 
+    {
+        SAW_OSC, SAW_OSC,
+        SAW_OSC, SAW_OSC,
+        SAW_OSC, SAW_OSC,
+        SAW_OSC, SAW_OSC,
+    };
+
+    juce::dsp::Oscillator<float> bassUnisons[8] =
+    {
+        BASS_SAW_OSC, BASS_SAW_OSC,
+        BASS_SAW_OSC, BASS_SAW_OSC,
+        BASS_SAW_OSC, BASS_SAW_OSC,
+        BASS_SAW_OSC, BASS_SAW_OSC,
+    };
+
+    juce::dsp::Oscillator<float> bassOsc{ [](float x) { return x / juce::MathConstants<float>::pi; } };
 
     juce::ADSR::Parameters adsrParams;
     juce::ADSR adsr;
